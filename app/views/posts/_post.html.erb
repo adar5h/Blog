@@ -14,7 +14,7 @@
             <p class="card-text"><%= truncate(post.description, length: 100) %></p>
             <%= link_to "View", post_path(post), class: "btn btn-outline-success" %>
             <%= link_to "Edit", edit_post_path(post), class: "btn btn-outline-info" %>
-            <%= link_to "Delete", post_path(post), class: "btn btn-outline-danger", method: :delete, data: {'turbo-method': :delete, confirm: "Are you sure?" } %>
+            <%= link_to "Delete", post_path(post), class: "btn btn-outline-danger", data: {turbo_confirm: "Are you sure?", turbo_method: :delete, turbo_frame: 'posts'} %>
           </div>
           <div class="card-footer text-muted">
             <small>Created <%= time_ago_in_words(post.created_at) %> ago,

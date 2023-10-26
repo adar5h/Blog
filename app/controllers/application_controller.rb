@@ -16,4 +16,8 @@ class ApplicationController < ActionController::Base
           redirect_to login_path
       end
     end
+
+    # def same_user
+    #   current_user == require_same_user
+    # end
 end

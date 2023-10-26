@@ -41,6 +41,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
+    redirect_to posts_url, notice: "Post was successfully destroyed."
   end
 
 
@@ -55,10 +56,10 @@ class PostsController < ApplicationController
   end
 
   def require_same_user
-    if current_user != @article.user
-        flash[:alert] = "You can only update or delete your own article."
-        redirect_to @article
+    if current_user != @post.user
+        flash[:alert] = "You can only update or delete your own post."
+        redirect_to @post
     end
   end
-  
+
 end
