@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
-  <head>
+    <head>
+      <div class="topnav">
+      <%= link_to "Home", root_path, class: "btn btn-success btn-lg" %>
+      <%= link_to "About", about_path, class: "btn btn-success btn-lg" %>
+    </div>
     <title>BlogApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -15,3 +19,38 @@
     <%= yield %>
   </body>
 </html>
+
+<style>
+
+body {
+   margin: 0;
+   padding: 0;
+}
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
