@@ -1,0 +1,17 @@
+<center>
+<h1>Login for Blog</h1>
+
+<%= form_with(scope: :session, url: :login) do |f| %>
+  <p>
+    <%= f.label :email %><br/>
+    <%= f.email_field :email , placeholder: "Enter your email"%>
+  </p>
+  <p>
+    <%= f.label :password %><br/>
+    <%= f.password_field :password, placeholder: "Enter your password" %>
+  </p>
+  <p>
+    <%=f.submit "Sign In!" %>
+  </p>
+<% end %>
+</center>
