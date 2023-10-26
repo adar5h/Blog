@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
 
   before_action :set_post, only: [:show, :update, :edit, :destroy]
+  before_action :require_user, except: [:show, :index]
+  before_action :require_same_user, only: [:update, :destroy, :edit]
 
   def index
     @posts = Post.all
@@ -15,7 +17,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @article.user = current_user
+    @post.user = current_user
         if @post.save
             flash[:notice] = "Your post is created."
             redirect_to @post
@@ -51,4 +53,12 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :description)
   end
+
+  def require_same_user
+    if current_user != @article.user
+        flash[:alert] = "You can only update or delete your own article."
+        redirect_to @article
+    end
+  end
+  
 end
