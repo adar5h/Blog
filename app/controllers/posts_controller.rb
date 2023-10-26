@@ -14,7 +14,9 @@ class PostsController < ApplicationController
   end
 
   def create
+    debugger
     @post = Post.new(post_params)
+    @post.user = User.first
         if @post.save
             flash[:notice] = "Your post is created."
             redirect_to @post

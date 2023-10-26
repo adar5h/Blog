@@ -7,6 +7,7 @@
             <th>Description</th>
             <th>Actions</th>
             <th colspan="3">Actions</th>
+            <th>Created by</th>
         </tr>
     </thead>
 
@@ -18,7 +19,8 @@
             <th> Placeholder</th>
              <td><%= link_to 'Show',  post_path(post)%></td>
              <td><%= link_to 'Edit', edit_post_path(post) %></td>
-                <td><%= link_to 'Delete', post_path(post),data: { "turbo-method": :delete}%></td>
+             <td><%= link_to 'Delete', post_path(post),data: { "turbo-method": :delete}%></td>
+             <td><%= post.user.username %></td>
         </tr>
         <% end %>
     </tbody>
