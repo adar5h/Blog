@@ -4,6 +4,6 @@
 <%= link_to "Edit Profile", edit_user_path, class: "btn btn-outline-info" %>
 <h3>Posts</h3>
 <%= "Empty enough? Let's express!" if @user.posts.count == 0%>
-<%= render current_user.posts.first %>
+<%= render current_user.posts.first if @user.posts.count != 0%>
 <% p @user.posts.count %>
 </center>
